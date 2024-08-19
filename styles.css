@@ -20,72 +20,96 @@ body {
 }
 
 h1 {
-    margin-bottom: 30px;
-    font-size: 26px;
+    margin-bottom: 20px;
+    font-size: 32px;
     color: #ffffff;
-    font-weight: 300;
+    font-weight: 400;
 }
 
-.clock {
-    font-size: 60px;
+.current-time {
+    font-size: 48px;
     margin-bottom: 30px;
-    letter-spacing: 2px;
     color: #ffffff;
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-}
-
-.clock span {
     background-color: #424242;
-    padding: 15px 20px;
-    border-radius: 8px;
-    min-width: 60px;
-    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .alarm-settings {
     margin-bottom: 20px;
+    text-align: left;
 }
 
-#alarm-time {
-    padding: 8px;
+#alarm-name, #alarm-time {
+    padding: 10px;
     font-size: 18px;
-    border-radius: 5px;
+    border-radius: 8px;
     border: none;
     background-color: #424242;
     color: #ffffff;
-    margin-right: 10px;
+    width: calc(100% - 20px);
+    margin-bottom: 15px;
 }
 
 button {
     padding: 10px 20px;
     font-size: 18px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #e74c3c;
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
 }
 
 button:hover {
     background-color: #c0392b;
 }
 
-.message {
-    font-size: 20px;
-    margin-top: 20px;
+.alarms-list {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.alarm-item {
+    background-color: #424242;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.alarm-info {
+    max-width: 60%;
+    font-size: 18px;
     color: #ffffff;
 }
 
-#stop-alarm {
-    display: none;
-    margin-top: 20px;
+.alarm-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.toggle-alarm, .delete-alarm {
+    background-color: #e74c3c;
+    color: #ffffff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-alarm.active {
     background-color: #27ae60;
 }
 
-#stop-alarm.show {
-    display: block;
+.toggle-alarm:hover, .delete-alarm:hover {
+    background-color: #c0392b;
 }
