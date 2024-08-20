@@ -71,12 +71,12 @@ function setAlarm() {
 }
 
 function toggleAlarm(index) {
-    alarms[index].active = !alarms[index].active;
-    if (alarms[index].active) {
-        activeAlarm = index;
-    } else if (activeAlarm === index) {
+    if (alarms[index].active && activeAlarm === index) {
         stopAlarm();
+    } else {
+        alarms[index].active = !alarms[index].active;
     }
+
     localStorage.setItem('alarms', JSON.stringify(alarms));
     displayAlarms();
 }
@@ -95,13 +95,9 @@ function checkAlarms() {
     const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 
     alarms.forEach((alarm, index) => {
-        if (alarm.active && alarm.time === currentTime) {
+        if (alarm.active && alarm.time === currentTime && activeAlarm === null) {
             alarmSound.play();
-            //alert(`Alarm: ${alarm.name}`);
-            alarms[index].active = false; // Deactivate alarm after it goes off
             activeAlarm = index;
-            localStorage.setItem('alarms', JSON.stringify(alarms));
-            displayAlarms();
         }
     });
 }
@@ -109,7 +105,13 @@ function checkAlarms() {
 function stopAlarm() {
     alarmSound.pause();
     alarmSound.currentTime = 0;
-    activeAlarm = null;
+
+    if (activeAlarm !== null) {
+        alarms[activeAlarm].active = false;
+        activeAlarm = null;
+        localStorage.setItem('alarms', JSON.stringify(alarms));
+        displayAlarms();
+    }
 }
 
 setAlarmButton.addEventListener('click', setAlarm);
