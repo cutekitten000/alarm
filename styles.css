@@ -1,29 +1,31 @@
 body {
-    background-color: #212121;
-    color: #f5f5f5;
+    background-color: #121212;
+    color: #e0e0e0;
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding: 20px;
 }
 
 .container {
-    background: #333333;
+    background: linear-gradient(135deg, #333333, #212121);
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
     max-width: 400px;
     width: 100%;
 }
 
 h1 {
     margin-bottom: 20px;
-    font-size: 32px;
+    font-size: 36px;
     color: #ffffff;
-    font-weight: 400;
+    font-weight: 500;
+    letter-spacing: 1.5px;
 }
 
 .current-time {
@@ -31,9 +33,10 @@ h1 {
     margin-bottom: 30px;
     color: #ffffff;
     background-color: #424242;
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    letter-spacing: 2px;
 }
 
 .alarm-settings {
@@ -42,31 +45,35 @@ h1 {
 }
 
 #alarm-name, #alarm-time {
-    padding: 10px;
+    padding: 12px;
     font-size: 18px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
     background-color: #424242;
     color: #ffffff;
-    width: calc(100% - 20px);
+    width: calc(100% - 24px);
     margin-bottom: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 18px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: #e74c3c;
     color: #ffffff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     margin-top: 10px;
     width: 100%;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
 }
 
 button:hover {
     background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
 }
 
 .alarms-list {
@@ -76,13 +83,19 @@ button:hover {
 
 .alarm-item {
     background-color: #424242;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 15px 20px;
     margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.alarm-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
 }
 
 .alarm-info {
@@ -99,17 +112,26 @@ button:hover {
 .toggle-alarm, .delete-alarm {
     background-color: #e74c3c;
     color: #ffffff;
-    padding: 5px 15px;
+    padding: 8px 15px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
 }
 
 .toggle-alarm.active {
     background-color: #27ae60;
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
 }
 
 .toggle-alarm:hover, .delete-alarm:hover {
     background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+}
+
+.toggle-alarm.active:hover {
+    background-color: #229954;
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.6);
 }
